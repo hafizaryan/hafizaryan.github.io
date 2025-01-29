@@ -3912,6 +3912,45 @@ img.u-pull-left {
   opacity: 1;
 }
 
+.gallery-slider__image {
+  width: 100%;
+  height: 300px; /* Fixed landscape height */
+  object-fit: cover; /* Ensure images maintain aspect ratio */
+  border-radius: 10px;
+  display: inline-block;
+  display: block;
+}
+
+.gallery .swiper-pagination-bullet {
+  width: 6px;
+  height: 6px;
+  background: white;
+  opacity: 0.4;
+}
+
+.gallery .swiper-container {
+  padding-bottom: var(--vspace-2_5);
+}
+
+.gallery
+  .swiper-container-horizontal
+  .swiper-pagination-bullets
+  .swiper-pagination-bullet {
+  margin: 0 9px;
+}
+
+.gallery .swiper-pagination-bullet {
+  width: 6px;
+  height: 6px;
+  background: white;
+  opacity: 0.4;
+}
+
+.gallery .swiper-pagination-bullet-active {
+  background: var(--color-1);
+  opacity: 1;
+}
+
 /* ------------------------------------------------------------------- 
  * ## testimonial slider 
  * ------------------------------------------------------------------- */

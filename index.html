@@ -66,6 +66,7 @@
                         <li class="current"><a href="#intro" class="smoothscroll">Intro</a></li>
                         <li><a href="#about" class="smoothscroll">About</a></li>
                         <li><a href="#works" class="smoothscroll">Works</a></li>
+                        <li><a href="#gallery" class="smoothscroll">Gallery</a></li>
                         <li><a href="#contact" class="smoothscroll">Contact Me</a></li>
                     </ul>
                 </nav>
@@ -285,7 +286,7 @@
                             </li>   
 
                             <li class="folio-list__item column" data-animate-el>
-                                <a class="folio-list__item-link" href="https://github.com/Daisy-Team/Daisy-Team">
+                                <a class="folio-list__item-link" href="https://github.com/Daisy-Team/Daisy-Team" target="_blank">
                                    
                                     
                                     <div class="folio-list__item-text">
@@ -339,8 +340,47 @@
                 </div> <!-- end works-portfolio -->
 
             </section> <!-- end s-works -->
-
-
+            <section class="target-section">
+                        <div class="row gallery" >
+                            <div class="column lg-12" id="gallery" data-animate-block> <h2 class="text-pretitle" data-animate-el>
+                                My Gallery
+                            </h2>
+                            <p class="h1" style="margin-top: 0; margin-bottom: 100px;" data-animate-el>
+                                This is a gallery showcasing my recent activities. Feel free to explore and take a look!
+                            </p>
+                                <div class="swiper-container testimonial-slider" data-animate-el>
+                                    <div class="swiper-wrapper">
+                                        <div class="gallery-slider__slide swiper-slide">
+                                            <img src="assets/gallery/gallery-1.jpg" alt="Gallery Image 1" class="gallery-slider__image">
+                                        </div> 
+                                        <div class="gallery-slider__slide swiper-slide">
+                                            <img src="assets/gallery/gallery-2.jpg" alt="Gallery Image 2" class="gallery-slider__image">
+                                        </div> 
+                                        <div class="gallery-slider__slide swiper-slide">
+                                            <img src="assets/gallery/gallery-3.jpg" alt="Gallery Image 3" class="gallery-slider__image">
+                                        </div> 
+                                        <div class="gallery-slider__slide swiper-slide">
+                                            <img src="assets/gallery/gallery-4.jpg" alt="Gallery Image 4" class="gallery-slider__image">
+                                        </div> 
+                                        <div class="gallery-slider__slide swiper-slide">
+                                            <img src="assets/gallery/gallery-5.jpg" alt="Gallery Image 1" class="gallery-slider__image">
+                                        </div> 
+                                        <div class="gallery-slider__slide swiper-slide">
+                                            <img src="assets/gallery/gallery-6.jpg" alt="Gallery Image 2" class="gallery-slider__image">
+                                        </div> 
+                                        <div class="gallery-slider__slide swiper-slide">
+                                            <img src="assets/gallery/gallery-7.jpg" alt="Gallery Image 3" class="gallery-slider__image">
+                                        </div> 
+                                        <div class="gallery-slider__slide swiper-slide">
+                                            <img src="assets/gallery/gallery-8.jpg" alt="Gallery Image 4" class="gallery-slider__image">
+                                        </div> 
+                                    </div> 
+                                    <div class="swiper-pagination"></div>
+                                </div> 
+                            </div> 
+                        </div> 
+                    </section>
+                        
             <!-- ### contact
             ================================================== -->
             <section id="contact" class="s-contact target-section">
@@ -410,6 +450,25 @@
     ================================================== -->
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
-
+    <script>document.addEventListener("DOMContentLoaded", function () {
+        var swiper = new Swiper(".testimonial-slider", {
+            loop: true,
+            autoplay: {
+                delay: 2000, // 2 detik
+                disableOnInteraction: false,
+            },
+            slidesPerView: 2, // Menampilkan 2 gambar per slide
+            spaceBetween: 20, // Jarak antar gambar
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+    });
+    </script>
 </body>
 </html>
