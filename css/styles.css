@@ -100,7 +100,7 @@
   --color-1-lighter: hsla(36, 72%, 90%, 1);
   --color-1-light: hsla(36, 72%, 80%, 1);
   --color-1-dark: hsla(36, 72%, 60%, 1);
-  --color-1-darker: hsla(36, 72%, 50%, 1);
+  --color-1-darker: #db9224;
   --color-2-lighter: hsla(168, 62%, 56%, 1);
   --color-2-light: hsla(168, 62%, 46%, 1);
   --color-2-dark: hsla(168, 62%, 26%, 1);
@@ -2425,6 +2425,55 @@ td:last-child {
   transition: all 0.5s;
 }
 
+.certificate-container {
+  position: relative;
+  overflow: hidden;
+  font-family: "Public Sans", sans-serif;
+}
+
+.certificate-image {
+  display: block;
+  width: 100%;
+  height: 245px;
+  transition: transform 0.4s ease;
+  border-radius: 2px;
+}
+
+.certificate-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 65px;
+  background: rgba(0, 0, 0, 0.71);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.overlay-text {
+  font-size: 1.3rem;
+  color: white;
+  transition: color 0.5s ease;
+  font-family: var(--font-1);
+  font-variant-ligatures: common-ligatures;
+  text-rendering: optimizeLegibility;
+  line-height: var(--vspace-0_75);
+  text-transform: uppercase;
+  letter-spacing: 0.3rem;
+}
+.overlay-text:hover {
+  color: hsl(36 70% 70% / 1);
+}
+
+.certificate-container:hover .certificate-overlay {
+  opacity: 1;
+  color: white;
+}
+
 /* ------------------------------------------------------------------- 
  * ## skillbars 
  * ------------------------------------------------------------------- */
@@ -3214,7 +3263,6 @@ img.u-pull-left {
   min-height: calc(25.5 * var(--space));
   justify-content: center;
   align-items: center;
-  /* padding-top     : calc(16vh + var(--header-height)); */
   padding-bottom: var(--vspace-3);
 }
 
@@ -3489,6 +3537,10 @@ img.u-pull-left {
   position: relative;
 }
 
+.timeline__desc {
+  text-align: justify;
+}
+
 .timeline::before {
   content: "";
   display: block;
@@ -3760,11 +3812,12 @@ img.u-pull-left {
   line-height: var(--vspace-0_75);
   margin-left: 0.2rem;
   margin-top: 15px;
+  text-align: justify;
 }
 
 .folio-list__item-tech {
   font-size: var(--text-sm);
-  color: var(--color-text-light);
+  color: white;
   line-height: var(--vspace-0_75);
   margin-left: 0.2rem;
   transition-duration: 0.5s;
@@ -3948,9 +4001,9 @@ img.u-pull-left {
   opacity: 0.4;
 }
 
-.gallery .swiper-container {
+/* .gallery .swiper-container {
   padding-bottom: var(--vspace-2_5);
-}
+} */
 
 .gallery
   .swiper-container-horizontal
@@ -4133,9 +4186,36 @@ img.u-pull-left {
  *
  * ------------------------------------------------------------------- */
 
+.status-container {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.status-indicator {
+  width: 10px;
+  height: 10px;
+  background-color: green;
+  border-radius: 50%;
+  margin-right: 10px;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+}
+
 .contact-top {
   padding-top: var(--vspace-5);
-  border-top: 1px solid var(--color-border);
+  /* border-top: 1px solid var(--color-border); */
 }
 
 .contact-top .h1 {
@@ -4332,3 +4412,24 @@ img.u-pull-left {
     right: 6vw;
   }
 }
+
+
+.social-link-animation {
+  display: inline-block;
+  position: relative;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+      transform: translateY(0);
+  }
+
+  50% {
+      transform: translateY(-7.5px);
+  }
+
+  100% {
+      transform: translateY(0);
+  }
+} 
