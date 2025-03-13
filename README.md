@@ -10,7 +10,7 @@ I am a final year student with experience in Web Development and Software Testin
 - **About**: Detailed information about my background, interests, and experiences.
 - **Works**: Recent projects I have worked on.
 - **Gallery**: Photo gallery of my activities and projects.
-- **Contact**: Contact form to reach me.
+- **Contact**: Contact form to reach me.  
 
 ## Technologies Used
 
