@@ -180,6 +180,24 @@
   --border-radius: 3px;
 }
 
+/* Light Mode Variables */
+html.light-mode {
+  --color-text: var(--color-gray-9);
+  --color-text-dark: var(--color-gray-10);
+  --color-text-light: var(--color-gray-7);
+  --color-placeholder: var(--color-gray-6);
+
+  --color-body: var(--color-white);
+  --color-border: rgba(0, 0, 0, 0.1);
+
+  --color-btn: var(--color-gray-2);
+  --color-btn-text: var(--color-gray-10);
+
+  --color-preloader-bg: var(--color-gray-1);
+  --color-loader: var(--color-gray-10);
+  --color-loader-light: rgba(0, 0, 0, 0.1);
+}
+
 /* ------------------------------------------------------------------- 
  * ## spacing and typescale
  * ------------------------------------------------------------------- */
@@ -3314,9 +3332,9 @@ img.u-pull-left {
 
 /* Sembunyikan social media links pada mobile/tablet */
 @media screen and (max-width: 1023px) {
-    .intro-social {
-        display: none;
-    }
+  .intro-social {
+    display: none;
+  }
 }
 
 .intro-social li {

@@ -44,6 +44,7 @@
     <link rel="canonical" href="https://hafizaryansiregar.me">
     <link rel="stylesheet" href="css/vendor.css">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/theme-toggle.css">
 
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="favicon.jpg">
@@ -103,6 +104,11 @@
                     </ul>
                 </nav>
             </div>
+            <!-- Theme toggle button -->
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark/Light Mode">
+                <i class="fas fa-moon"></i>
+                <i class="fas fa-sun"></i>
+            </button>
         </header>
         </header>
         <main class="s-content">
@@ -113,7 +119,7 @@
                             Hello,
                         </div>
                         <h1 class="text-huge-title">
-                            I am Hafiz Aryan Siregar
+                            I am Hafiz Aryan Siregar <br> Technology Enthusiast
                         </h1>
                         <div style="margin-top: 30px;">
                             <ul class="intro-social">
@@ -1127,6 +1133,7 @@
     </div>
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/theme-toggle.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             var swiper = new Swiper(".testimonial-slider", {

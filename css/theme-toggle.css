@@ -1,0 +1,127 @@
+/* Theme Toggle Styles */
+.theme-toggle {
+  position: fixed;
+  top: 690px;
+  right: 1300px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1px;
+  height: 30px;
+  border-radius: 10%;
+  background-color: var(--color-1);
+  color: var(--color-black);
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+}
+
+.theme-toggle i {
+  font-size: 1.5rem;
+  transition: transform 0.5s ease;
+}
+
+.theme-toggle:hover i {
+  transform: rotate(30deg);
+}
+
+/* Icon position adjustments */
+.fa-sun {
+  display: none;
+}
+
+html.light-mode .fa-sun {
+  display: inline-block;
+}
+
+html.light-mode .fa-moon {
+  display: none;
+}
+
+/* Adjust header and other elements for light mode */
+html.light-mode .s-header {
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+html.light-mode .s-header a {
+  color: var(--color-gray-9);
+}
+
+html.light-mode .s-header a:hover {
+  color: var(--color-1);
+}
+
+html.light-mode .main-nav a::before {
+  background-color: var(--color-1);
+}
+
+/* For mobile menu toggle */
+html.light-mode .mobile-menu-toggle span {
+  background-color: var(--color-gray-9);
+}
+
+/* Transition for smooth theme switching */
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Additional style overrides for light mode */
+html.light-mode h1,
+html.light-mode h2,
+html.light-mode h3,
+html.light-mode h4,
+html.light-mode h5,
+html.light-mode h6 {
+  color: var(--color-gray-10);
+}
+
+html.light-mode .section-header h3::after {
+  background-color: var(--color-1);
+}
+
+/* Fix untuk btn--stroke di light mode */
+html.light-mode .btn.btn--stroke {
+  color: var(--color-gray-10);
+  border-color: var(--color-gray-10);
+}
+
+html.light-mode .btn.btn--stroke:hover {
+  background-color: var(--color-1);
+  color: var(--color-black);
+}
+
+/* Penyesuaian tambahan untuk tombol di modal dan bagian lain */
+html.light-mode .modal__close .btn--stroke {
+  color: var(--color-gray-10);
+  border-color: var(--color-gray-10);
+}
+
+html.light-mode .modal__close .btn--stroke:hover {
+  background-color: var(--color-1);
+  color: var(--color-black);
+}
+
+/* Memastikan tombol dengan border konsisten di light mode */
+html.light-mode [class*="btn--stroke"] {
+  color: var(--color-gray-10);
+  border-color: var(--color-gray-10);
+}
+
+html.light-mode [class*="btn--stroke"]:hover {
+  background-color: var(--color-1);
+  color: var(--color-black);
+}
+
+@media screen and (max-width: 800px) {
+  .theme-toggle {
+    top: 15px;
+    right: 70px;
+  }
+}
