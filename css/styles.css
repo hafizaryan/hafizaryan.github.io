@@ -145,13 +145,12 @@
   --color-gray-2: #d0d0d0;
   --color-gray-1: #e8e8e8;
   --color-white: #ffffff;
-
   /* text
      */
-  --color-text: var(--color-gray-4);
+  --color-text: var(--color-gray-2);
   --color-text-dark: var(--color-white);
-  --color-text-light: var(--color-gray-7);
-  --color-placeholder: var(--color-gray-7);
+  --color-text-light: var(--color-gray-5);
+  --color-placeholder: var(--color-gray-5);
 
   /* buttons
      */
@@ -186,12 +185,12 @@
  * ------------------------------------------------------------------- */
 :root {
   /* spacing
-     * base font size: 19px 
+     * base font size: 18px 
      * vertical space unit : 32px
      */
   --base-size: 62.5%;
   --multiplier: 1;
-  --base-font-size: calc(1.9rem * var(--multiplier));
+  --base-font-size: calc(1.8rem * var(--multiplier));
   --space: calc(3.2rem * var(--multiplier));
 
   /* vertical spacing 
@@ -213,27 +212,27 @@
   --vspace-3_5: calc(3.5 * var(--space));
   --vspace-4: calc(4 * var(--space));
   --vspace-4_5: calc(4.5 * var(--space));
-  --vspace-5: calc(5 * var(--space));
-
-  /* type scale
-     * ratio 1:2 | base: 19px
+  --vspace-5: calc(
+    5 * var(--space)
+  ); /* type scale
+     * ratio 1:1.15 | base: 18px
      * -------------------------------------------------------
      *
-     * --text-display-3 = (81.70px)
-     * --text-display-2 = (68.08px)
-     * --text-display-1 = (56.73px)
-     * --text-xxxl      = (47.28px)
-     * --text-xxl       = (39.40px)
-     * --text-xl        = (32.83px)
-     * --text-lg        = (27.36px)
-     * --text-md        = (22.80px)
-     * --text-size      = (19.00px) BASE
-     * --text-sm        = (15.83px)
-     * --text-xs        = (13.19px)
+     * --text-display-3 = (40.36px)
+     * --text-display-2 = (35.09px)
+     * --text-display-1 = (30.52px)
+     * --text-xxxl      = (26.54px)
+     * --text-xxl       = (23.08px)
+     * --text-xl        = (20.07px)
+     * --text-lg        = (19.00px)
+     * --text-md        = (18.00px)
+     * --text-size      = (18.00px) BASE
+     * --text-sm        = (16.00px)
+     * --text-xs        = (14.00px)
      *
      * ---------------------------------------------------------
      */
-  --text-scale-ratio: 1.2;
+  --text-scale-ratio: 1.15;
   --text-size: var(--base-font-size);
   --text-xs: calc(
     (var(--text-size) / var(--text-scale-ratio)) / var(--text-scale-ratio)
@@ -260,7 +259,7 @@
  */
 @media screen and (max-width: 600px) {
   :root {
-    --multiplier: 0.875;
+    --multiplier: 0.94;
   }
 }
 
@@ -410,6 +409,7 @@ button,
 [type="reset"],
 [type="submit"] {
   -webkit-appearance: button;
+  appearance: button;
 }
 
 button::-moz-focus-inner,
@@ -461,6 +461,7 @@ textarea {
 
 [type="search"] {
   -webkit-appearance: textfield;
+  appearance: textfield;
   outline-offset: -2px;
 }
 
@@ -470,6 +471,7 @@ textarea {
 
 ::-webkit-file-upload-button {
   -webkit-appearance: button;
+  appearance: button;
   font: inherit;
 }
 
@@ -521,8 +523,11 @@ body {
 }
 
 p {
-  font-size: inherit;
+  font-size: var(--text-size);
   text-rendering: optimizeLegibility;
+  line-height: 1.6;
+  margin-bottom: var(--vspace-0_75);
+  letter-spacing: 0.01em;
 }
 
 a {
@@ -1277,7 +1282,7 @@ textarea {
 body {
   font-family: var(--font-1);
   font-size: var(--base-font-size);
-  font-weight: 300;
+  font-weight: 400;
   line-height: var(--vspace-1);
   color: var(--color-text);
 }
@@ -1438,9 +1443,9 @@ blockquote {
 blockquote p {
   font-family: var(--font-1);
   font-weight: 400;
-  font-size: var(--text-lg);
+  font-size: var(--text-md);
   font-style: normal;
-  line-height: var(--vspace-1_25);
+  line-height: 1.6;
   color: var(--color-text-dark);
   padding: 0;
 }
@@ -1660,15 +1665,19 @@ ul {
 
 li {
   display: list-item;
+  font-size: var(--text-size);
+  line-height: 1.5;
+  margin-bottom: 0.6rem;
 }
 
 ol,
 ul {
-  margin-left: 1.6rem;
+  margin-left: 2rem;
+  margin-bottom: var(--vspace-0_75);
 }
 
 ul li {
-  padding-left: 0.4rem;
+  padding-left: 0.5rem;
 }
 
 ul ul,
@@ -2106,7 +2115,7 @@ input[type="button"].btn--primary:hover {
  */
 .btn.u-fullwidth,
 button.u-fullwidth {
-  width: 100%;
+  width: 25%;
   margin-right: 0;
 }
 
@@ -2130,6 +2139,7 @@ button.btn--stroke {
   background: transparent !important;
   border: 1px solid var(--color-btn-stroke);
   color: var(--color-btn-stroke-text);
+  margin-right: 15px;
 }
 
 .btn--stroke:focus,
@@ -2724,11 +2734,11 @@ img.u-pull-left {
  * ------------------------------------------------------------------- */
 .text-pretitle {
   font-family: var(--font-1);
-  font-size: var(--text-sm);
-  font-weight: 400;
-  color: var(--color-white);
+  font-size: var(--text-md);
+  font-weight: 500;
+  color: hsla(36, 72%, 75%, 1);
   text-transform: uppercase;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.2em;
   margin-top: 0;
   margin-left: 0.2rem;
   margin-bottom: var(--vspace-0_5);
@@ -2753,10 +2763,11 @@ img.u-pull-left {
 }
 
 .text-huge-title {
-  --text-huge: 7.8rem;
+  --text-huge: 5.6rem;
   font-size: var(--text-huge);
-  line-height: 1.074;
+  line-height: 1.2;
   margin-top: 0;
+  letter-spacing: -0.02em;
 }
 
 /* ------------------------------------------------------------------- 
@@ -3013,7 +3024,7 @@ img.u-pull-left {
 .mobile-home-link a,
 .main-nav a {
   display: block;
-  font-size: 10px;
+  font-size: 14px;
   font-weight: 400;
   line-height: var(--header-height);
   text-transform: uppercase;
@@ -3291,6 +3302,23 @@ img.u-pull-left {
   left: calc(100% - 6rem);
 }
 
+/* Hapus underline pada link */
+.intro-social a {
+  text-decoration: none;
+}
+
+/* Hapus underline saat hover */
+.intro-social a:hover {
+  text-decoration: none;
+}
+
+/* Sembunyikan social media links pada mobile/tablet */
+@media screen and (max-width: 1023px) {
+    .intro-social {
+        display: none;
+    }
+}
+
 .intro-social li {
   padding: 0 1.2rem;
 }
@@ -3454,11 +3482,6 @@ img.u-pull-left {
  *
  * ------------------------------------------------------------------- */
 
-.s-about {
-  padding-top: var(--vspace-4);
-  padding-bottom: var(--vspace-3);
-}
-
 /* --------------------------------------------------------------------
  * ## about info
  * -------------------------------------------------------------------- */
@@ -3473,7 +3496,8 @@ img.u-pull-left {
   margin: 0;
   vertical-align: bottom;
   margin-left: 115px;
-  width: 60%;
+  margin-top: 70px;
+  width: 55%;
 }
 
 @media screen and (max-width: 1000px) {
@@ -3675,9 +3699,16 @@ img.u-pull-left {
   margin-left: 0;
 }
 
+.folio-list__item-thumbnail {
+  position: relative;
+  overflow: hidden;
+  font-family: "Public Sans", sans-serif;
+}
+
 .folio-list__item {
   margin-bottom: var(--vspace-1);
   position: relative;
+  padding-bottom: var(--vspace-0_5);
 }
 
 .folio-list__item-link {
@@ -3692,86 +3723,6 @@ img.u-pull-left {
 .folio-list__item-link:hover {
   color: var(--color-1);
   outline: 0;
-}
-
-.folio-list__item-link:focus .folio-list__item-pic::before,
-.folio-list__item-link:hover .folio-list__item-pic::before {
-  opacity: 1;
-  visibility: visible;
-}
-
-.folio-list__item-link:focus .folio-list__item-pic::after,
-.folio-list__item-link:hover .folio-list__item-pic::after {
-  opacity: 1;
-  visibility: visible;
-  transform: scale(1);
-}
-
-.folio-list__item-link:focus .folio-list__item-text::before,
-.folio-list__item-link:hover .folio-list__item-text::before {
-  width: 100%;
-}
-
-/* .folio-list__item-pic {
-    display  : block;
-    position : absolute;
-    top      : 0;
-    left     : 0;
-}
-
-.folio-list__item-pic img {
-    vertical-align : bottom;
-    object-fit     : cover;
-    width          : var(--item-min-height);
-    height         : var(--item-min-height);
-    margin         : 0;
-}
-
-.folio-list__item-pic::before,
-.folio-list__item-pic::after {
-    transition : all, 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
-}
-
-.folio-list__item-pic::before {
-    z-index          : 1;
-    content          : "";
-    display          : block;
-    background-color : rgba(255, 255, 255, 0.75);
-    position         : absolute;
-    top              : 0;
-    left             : 0;
-    right            : 0;
-    bottom           : 0;
-    width            : 100%;
-    height           : 100%;
-    opacity          : 0;
-    visibility       : hidden;
-}
-
-.folio-list__item-pic::after {
-    z-index     : 2;
-    display     : block;
-    content     : "+";
-    font-family : var(--font-1);
-    font-weight : 300;
-    font-size   : 2.2rem;
-    color       : black;
-    text-align  : center;
-    height      : var(--vspace-1);
-    width       : var(--vspace-1);
-    line-height : var(--vspace-1);
-    transform   : scale(0.2);
-    opacity     : 0;
-    visibility  : hidden;
-    position    : absolute;
-    top         : calc(50% - var(--vspace-0_5));
-    left        : calc(50% - var(--vspace-0_5));
-} */
-
-.folio-list__item-text::before,
-.folio-list__item-title,
-.folio-list__item-cat {
-  transition: all, 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
 .folio-list__item-text {
@@ -3790,12 +3741,19 @@ img.u-pull-left {
   position: absolute;
   top: 0;
   left: 0;
+  transition: width 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.folio-list__item-link:focus .folio-list__item-text::before,
+.folio-list__item-link:hover .folio-list__item-text::before {
+  width: 100%;
 }
 
 .folio-list__item-title {
   font-family: var(--font-1);
   font-weight: 500;
   font-size: var(--text-lg);
+  transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
 .folio-list__item-cat {
@@ -3804,6 +3762,7 @@ img.u-pull-left {
   line-height: var(--vspace-1_25);
   margin-left: 0.2rem;
   margin-bottom: 15px;
+  transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
 .folio-list__item-desc {
@@ -3815,28 +3774,64 @@ img.u-pull-left {
   text-align: justify;
 }
 
-.folio-list__item-tech {
-  font-size: var(--text-sm);
-  color: white;
-  line-height: var(--vspace-1_25);
-  margin-left: 0.2rem;
-  transition-duration: 0.5s;
-  margin-top: 15px;
+/* Tech Stack Styles */
+.folio-list__item-tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: var(--vspace-0_75);
 }
 
-.folio-list__item-tech:focus,
-.folio-list__item-tech:hover {
+.tech-tag {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  font-size: var(--text-sm);
+  color: var(--color-3);
+  transition: all 0.3s ease;
+}
+
+.tech-tag:hover {
+  background-color: var(--color-1);
+  color: var(--color-black);
+}
+
+/* Project Links Container */
+.folio-list__item-links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: var(--vspace-0_5);
+}
+
+.project-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: var(--text-sm);
+  color: white;
+  transition: color 0.3s ease;
+}
+
+.project-link:hover {
   color: var(--color-1);
-  outline: 0;
+}
+
+.project-link svg {
+  width: 15px;
+  height: 15px;
+  transition: transform 0.3s ease;
+}
+
+.project-link:hover svg {
+  transform: translateX(3px);
 }
 
 .folio-list__proj-link {
   display: block;
   height: var(--vspace-1);
   width: var(--vspace-1);
-  position: absolute;
-  top: 0.8rem;
-  right: var(--vspace-0_75);
+  position: relative;
 }
 
 .folio-list__proj-link svg {
@@ -3846,14 +3841,15 @@ img.u-pull-left {
   position: absolute;
   top: 50%;
   left: 50%;
+  transition: transform 0.3s ease;
 }
 
 .folio-list__proj-link svg path {
   fill: white;
 }
 
-.folio-list__proj-link:hover {
-  transform: scale(1.2);
+.folio-list__proj-link:hover svg {
+  transform: translate(-50%, -50%) rotate(0deg);
 }
 
 /* ------------------------------------------------------------------- 
@@ -4447,4 +4443,42 @@ img.u-pull-left {
   100% {
     transform: translateY(0);
   }
+}
+
+/* --------------------------------------------------------------------
+ * ## improved readability styles
+ * -------------------------------------------------------------------- */
+.s-content p,
+.s-content li,
+.s-content blockquote,
+.s-content td,
+.s-content th,
+.s-content dd,
+.s-content dt {
+  font-weight: 400;
+  color: var(--color-text);
+}
+
+@media (min-width: 768px) {
+  p,
+  .body-text {
+    max-width: 85ch;
+  }
+}
+
+.readable-font-size {
+  font-size: var(--text-md);
+}
+
+/* Improved text readability for navigation */
+.main-nav a {
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+/* Improve contrast for links */
+a:focus,
+a:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
 }
