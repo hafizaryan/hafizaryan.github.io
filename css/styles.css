@@ -93,7 +93,7 @@
      * color-2(#23967f)
      */
   --color-1: hsla(36, 72%, 70%, 1);
-  --color-2: hsla(168, 62%, 36%, 1);
+  --color-2: rgb(0, 0, 0);
 
   /* theme color variations
      */
@@ -4415,7 +4415,7 @@ img.u-pull-left {
 }
 
 .ss-go-top svg path {
-  fill: white;
+  fill: hsla(36, 72%, 75%, 1);
 }
 
 /* ------------------------------------------------------------------- 
