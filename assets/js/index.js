@@ -59,6 +59,18 @@ window.addEventListener("DOMContentLoaded", () => {
   setupSupportModal();
 });
 
+// Hide loading screen when page is fully loaded
+window.addEventListener("load", () => {
+  const loadingScreen = document.getElementById("loading-screen");
+  if (loadingScreen) {
+    loadingScreen.classList.add("fade-out");
+    // Remove from DOM after animation completes
+    setTimeout(() => {
+      loadingScreen.remove();
+    }, 500);
+  }
+});
+
 function setupSupportModal() {
   const supportLink = document.getElementById("support-link");
   const modal = document.getElementById("support-modal");
@@ -87,3 +99,47 @@ function setupSupportModal() {
     }
   });
 }
+
+// ajs
+
+    // Initialize AOS Animation
+        AOS.init({
+            once: true, // Animation happens only once
+            offset: 100,
+            duration: 800,
+            easing: 'ease-out-cubic',
+        });
+
+        // Mobile Menu Logic
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                // Trigger reflow to enable transition
+                menu.offsetHeight;
+                menu.classList.remove('opacity-0', 'invisible');
+            } else {
+                menu.classList.add('opacity-0', 'invisible');
+                setTimeout(() => {
+                    menu.classList.add('hidden');
+                }, 300);
+            }
+        }
+
+        // Close mobile menu when a link is clicked
+        function closeMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.add('opacity-0', 'invisible');
+            setTimeout(() => {
+                menu.classList.add('hidden');
+            }, 300);
+        }
+
+        // Add click event listeners to all mobile menu links
+        document.addEventListener('DOMContentLoaded', function () {
+            const mobileMenuLinks = document.querySelectorAll('#mobile-menu a');
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', closeMenu);
+            });
+        });
+        

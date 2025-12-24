@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth overflow-x-hidden">
 
 <head>
     <meta charset="UTF-8">
@@ -85,9 +85,19 @@
     <link rel="icon" type="image/jpg" sizes="32x32" href="assets/favicon.jpg">
     <link rel="icon" type="image/jpg" sizes="16x16" href="assets/favicon.jpg">
     <link rel="manifest" href="assets/images/site.webmanifest">
+
 </head>
 
-<body class="bg-bg text-muted font-sans antialiased selection:bg-white selection:text-black">
+<body class="bg-bg text-muted font-sans antialiased selection:bg-white selection:text-black overflow-x-hidden w-full">
+
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div style="text-align: center;">
+            <div class="loader"></div>
+            <div class="loading-logo">&lt;hafiz /&gt;</div>
+            <div class="loading-text">Loading...</div>
+        </div>
+    </div>
 
     <!-- Navbar -->
     <nav class="fixed w-full z-50 glass-nav border-b border-border">
@@ -116,7 +126,8 @@
             </div>
         </div>
         <!-- Mobile Dropdown -->
-        <div id="mobile-menu" class="hidden lg:hidden bg-bg border-b border-border absolute w-full">
+        <div id="mobile-menu"
+            class="hidden lg:hidden bg-bg border-b border-border absolute w-full transition-all duration-300 ease-out opacity-100">
             <div class="px-4 py-4 space-y-4 flex flex-col text-lg">
                 <a href="#" id="mobile-nav-intro" class="block text-white">Intro</a>
                 <a href="#about" id="mobile-nav-about" class="block text-white">About</a>
@@ -161,12 +172,12 @@
 
                 <!-- Socials -->
                 <div class="mt-10 flex gap-6">
-                    <a href="https://github.com/hafizaryan" class="text-2xl hover:text-white transition"><i
-                            class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/hafizaryan/" class="text-2xl hover:text-white transition"><i
-                            class="fab fa-linkedin"></i></a>
-                    <a href="https://www.instagram.com/hafizaryan_/" class="text-2xl hover:text-white transition"><i
-                            class="fab fa-instagram"></i></a>
+                    <a href="https://github.com/hafizaryan" class="text-2xl hover:text-white transition"
+                        target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/hafizaryan/" class="text-2xl hover:text-white transition"
+                        target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/hafizaryan_/" class="text-2xl hover:text-white transition"
+                        target="_blank"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
         </div>
@@ -180,8 +191,8 @@
                 <div class="h-1 w-20 bg-white"></div>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-12">
-                <div class="col-span-2 space-y-6 text-lg text-gray-400 text-justify" data-aos="fade-up"
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="md:col-span-2 space-y-6 text-lg text-gray-400 text-justify" data-aos="fade-up"
                     data-aos-delay="100">
                     <p>
                         Information Systems graduate with a proven track record in leading website development projects
@@ -189,6 +200,14 @@
                         development (.NET, PHP & JavaScript frameworks). Passionate about leveraging technical expertise
                         to drive innovative projects.
                     </p>
+
+                    <div class="pt-6 text-center">
+                        <a href="assets/pdf/cv.pdf"
+                            class="bg-white text-black px-5 py-3 font-bold hover:bg-gray-100 transition block w-full shadow-md"
+                            target="_blank">
+                            Download Resume
+                        </a>
+                    </div>
 
                     <div class="pt-6">
                         <h3 class="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Tech Stack</h3>
@@ -222,11 +241,14 @@
                                 class="px-4 py-2 bg-surface border border-border rounded text-sm text-white hover:border-white transition duration-300">CodeIgniter</span>
                         </div>
                     </div>
+
+
                 </div>
 
-                <!-- Stats -->
-                <div class="flex justify-center items-center" data-aos="fade-left"> <img
-                        src="assets/images/about-photo.jpeg" alt="Profile Photo" class="object-cover w-full h-full">
+                <!-- Profile Picture -->
+                <div class="hidden md:flex justify-center items-center w-full h-full" data-aos="fade-left">
+                    <img src="assets/images/about-photo.jpeg" alt="Profile Photo"
+                        class="object-cover w-full h-full shadow-lg">
                 </div>
             </div>
         </div>
@@ -365,54 +387,6 @@
                     </div>
                 </div>
             </div>
-            <!-- Project Detail Modal -->
-            <div id="project-modal"
-                class="fixed inset-0 bg-black/80 backdrop-blur-sm hidden z-50 overflow-y-auto px-0 md:px-6 py-6">
-                <div
-                    class="bg-bg border border-border w-full min-h-screen md:min-h-[80vh] max-w-6xl mx-auto relative overflow-hidden">
-                    <button aria-label="Close project detail" data-close-modal
-                        class="absolute top-3 right-3 text-gray-400 hover:text-white transition">
-                        <i class="fa-solid fa-times text-xl"></i>
-                    </button>
-                    <div class="grid md:grid-cols-2 gap-6 p-6 md:p-10 h-full">
-                        <div
-                            class="bg-zinc-900 border border-border min-h-[260px] md:min-h-[360px] h-full flex items-center justify-center">
-                            <img id="project-modal-image" src="" alt="Project preview"
-                                class="w-full h-full object-cover hidden">
-                            <div id="project-modal-placeholder"
-                                class="text-gray-500 text-sm text-center px-4 leading-relaxed">No preview available for
-                                this project.</div>
-                        </div>
-                        <div class="space-y-4 overflow-y-auto pr-1">
-                            <div>
-                                <p class="text-xs uppercase tracking-[0.2em] text-gray-500 mb-1">Project detail</p>
-                                <h3 id="project-modal-title" class="text-2xl font-bold text-white">Project Title</h3>
-                            </div>
-                            <p id="project-modal-desc" class="text-gray-400 leading-relaxed text-sm">Description goes
-                                here.</p>
-                            <div>
-                                <p class="text-xs uppercase tracking-[0.2em] text-gray-500 mb-2">Technologies</p>
-                                <div id="project-modal-tech" class="flex flex-wrap gap-2 text-xs"></div>
-                            </div>
-                            <div>
-                                <p class="text-xs uppercase tracking-[0.2em] text-gray-500 mb-2">Key features</p>
-                                <ul id="project-modal-features"
-                                    class="list-disc list-inside text-sm text-gray-400 space-y-1"></ul>
-                            </div>
-                            <div class="flex gap-3">
-                                <a id="project-modal-link" href="#" target="_blank"
-                                    class="hidden bg-white text-black px-4 py-2 text-sm font-semibold hover:bg-gray-200 transition">
-                                    View Repository
-                                </a>
-                                <button data-close-modal
-                                    class="border border-border text-white px-4 py-2 text-sm font-medium hover:bg-surface transition">
-                                    Close
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -428,9 +402,8 @@
                     </h2>
                     <div class="space-y-8">
                         <div class="group">
-                            <h3
-                                class="text-xl font-bold text-white group-hover:underline decoration-gray-500 underline-offset-4">
-                                Bachelor of Computer Science</h3>
+                            <h3 class="text-xl font-bold text-white decoration-gray-500 underline-offset-4">
+                                Bachelor of Computer Science (S.Kom)</h3>
                             <p class="text-gray-400">Universitas Islam Negeri Sultan Syarif Kasim Riau</p>
                             <p class="text-xs text-gray-500 mt-1 mb-3">Jul 2021 - Mar 2025 (GPA: 3.86)</p>
                             <ul class="list-disc text-sm space-y-2 text-gray-400 marker:text-white text-justify">
@@ -459,10 +432,6 @@
                                 </div>
                                 <span class="mt-8  text-xs bg-zinc-800 px-2 py-1 text-white">Jan - Jul 2025</span>
                             </div>
-                            <a href="">
-                                <span
-                                    class="border border-zinc-700 px-3 py-1 text-gray-200 text-sm hover:border-white transition duration-300">View
-                                    More</span></a>
                         </div>
                         <!-- Card 2 -->
                         <div class="bg-surface p-5 border border-border ">
@@ -473,14 +442,9 @@
                                 </div>
                                 <span class="mt-8 text-xs bg-zinc-800 px-2 py-1 text-white">Sep 2024 - Jan 2025</span>
                             </div>
-                            <a href="">
-                                <span
-                                    class="border border-zinc-700 px-3 py-1 text-gray-200 text-sm hover:border-white transition duration-300">View
-                                    More</span></a>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -652,7 +616,7 @@
             </p>
 
             <div class="bg-bg p-8 border border-border text-left mb-2" data-aos="zoom-in">
-                <form action="https://formspree.io/f/xvzpvywr" method="POST" class="space-y-6">
+                <form id="contact-form" action="https://formspree.io/f/xvzpvywr" method="POST" class="space-y-6">
                     <div class="grid md:grid-cols-1 gap-6">
                         <div>
                             <label class="block text-sm font-medium text-gray-400 mb-2">Email</label>
@@ -688,8 +652,7 @@
                 <span class="text-green-400 text-sm font-semibold tracking-wide">Uptime Status</span>
             </div>
             <p class="text-gray-600 text-sm">
-                Hafiz Aryan Siregar <span class="mx-2">|</span> Last Updated: Dec 23, 2025
-                <span class="mx-2">|</span>
+                Hafiz Aryan Siregar <span class="mx-2">|</span>
                 <a href="#" id="support-link" class="hover:underline text-gray-500">Support Me</a>
             </p>
         </div>
@@ -734,12 +697,143 @@
             const menu = document.getElementById('mobile-menu');
             if (menu.classList.contains('hidden')) {
                 menu.classList.remove('hidden');
-                // Simple fade in effect logic can be added here
+                // Trigger reflow to enable transition
+                menu.offsetHeight;
+                menu.classList.remove('opacity-0', 'invisible');
             } else {
-                menu.classList.add('hidden');
+                menu.classList.add('opacity-0', 'invisible');
+                setTimeout(() => {
+                    menu.classList.add('hidden');
+                }, 300);
             }
         }
+
+        // Close mobile menu when a link is clicked
+        function closeMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.add('opacity-0', 'invisible');
+            setTimeout(() => {
+                menu.classList.add('hidden');
+            }, 300);
+        }
+
+        // Add click event listeners to all mobile menu links
+        document.addEventListener('DOMContentLoaded', function () {
+            const mobileMenuLinks = document.querySelectorAll('#mobile-menu a');
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', closeMenu);
+            });
+
+            // Handle contact form submission
+            const contactForm = document.getElementById('contact-form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function (e) {
+                    e.preventDefault();
+
+                    // Get form values
+                    const email = this.elements['email'].value;
+                    const message = this.elements['message'].value;
+
+                    // Validate
+                    if (!email || !message) {
+                        alert('Please fill in all fields');
+                        return;
+                    }
+
+                    // Send via fetch with JSON
+                    fetch(this.action, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            email: email,
+                            message: message
+                        })
+                    })
+                        .then(response => {
+                            if (response.ok) {
+                                // Show success notification
+                                showSuccessNotification();
+
+                                // Reset form
+                                contactForm.reset();
+                            } else {
+                                alert('Failed to send message');
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                            alert('Error sending message');
+                        });
+                });
+            }
+        });
+
+        // Show success notification
+        function showSuccessNotification() {
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = 'fixed top-6 right-6 z-[200] animate-slide-in';
+            notification.innerHTML = `
+                <div class="bg-surface border border-border rounded-lg shadow-lg px-6 py-4 flex items-center gap-3 max-w-sm">
+                    <div class="flex-shrink-0 text-green-400">
+                        <i class="fa-solid fa-check text-xl"></i>
+                    </div>
+                    <div class="flex-1">
+                        <p class="text-white text-sm font-medium">Pesan Anda telah berhasil terkirim!</p>                        
+                    </div>
+                    <button onclick="this.closest('.animate-slide-in').remove()" class="flex-shrink-0 text-gray-500 hover:text-gray-400 transition">
+                        <i class="fa-solid fa-times text-sm"></i>
+                    </button>
+                </div>
+            `;
+
+            document.body.appendChild(notification);
+
+            // Remove notification after 3 seconds
+            setTimeout(() => {
+                notification.classList.add('animate-slide-out');
+                setTimeout(() => {
+                    notification.remove();
+                }, 300);
+            }, 3000);
+        }
     </script>
+    <style>
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(400px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideOut {
+            from {
+                opacity: 1;
+                transform: translateX(0);
+            }
+
+            to {
+                opacity: 0;
+                transform: translateX(400px);
+            }
+        }
+
+        .animate-slide-in {
+            animation: slideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .animate-slide-out {
+            animation: slideOut 0.3s cubic-bezier(0.7, 0, 0.84, 0);
+        }
+    </style>
 </body>
 
 </html>
