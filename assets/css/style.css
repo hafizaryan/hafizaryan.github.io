@@ -103,4 +103,36 @@
   margin-top: 0.5rem;
 }
 
+/* Project tilt + shine effect */
+.project-card {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 200ms ease, box-shadow 200ms ease;
+  transform: perspective(900px) rotateX(var(--tilt-y, 0deg))
+    rotateY(var(--tilt-x, 0deg));
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
 
+.project-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at var(--shine-x, 50%) var(--shine-y, 50%),
+    rgba(255, 255, 255, 0.16),
+    transparent 45%
+  );
+  opacity: 0;
+  transition: opacity 200ms ease;
+  pointer-events: none;
+}
+
+.project-card:hover {
+  transform: perspective(900px) rotateX(var(--tilt-y, 0deg))
+    rotateY(var(--tilt-x, 0deg)) translateY(-4px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+}
+
+.project-card:hover::before {
+  opacity: 1;
+}

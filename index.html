@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Hafiz Aryan Siregar | Full Stack Web Developer, Cloud Engineer & Software Tester</title>
+    <title>Portfolio Hafiz Aryan Siregar</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Primary Meta Tags -->
@@ -299,14 +299,32 @@
                 </a>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Filter Bar -->
+            <div id="project-filters" class="mb-8 flex flex-wrap gap-3" data-aos="fade-up">
+                <button
+                    class="px-4 py-2 bg-surface border border-border text-white text-sm hover:border-white transition"
+                    data-filter="all" aria-pressed="true">All</button>
+                <button
+                    class="px-4 py-2 bg-surface border border-border text-white text-sm hover:border-white transition"
+                    data-filter="web" aria-pressed="false">Web</button>
+                <button
+                    class="px-4 py-2 bg-surface border border-border text-white text-sm hover:border-white transition"
+                    data-filter="system" aria-pressed="false">System</button>
+                <button
+                    class="px-4 py-2 bg-surface border border-border text-white text-sm hover:border-white transition"
+                    data-filter="ai" aria-pressed="false">AI</button>
+            </div>
+
+            <div id="projects-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Project 1 -->
-                <div class="group cursor-pointer" data-project-card data-title="Foodinary"
-                    data-desc="Foodinary is a web-based platform designed to promote and educate users about the rich diversity of Indonesian traditional cuisine."
-                    data-tech="React, Firebase, Tailwind" data-image="https://via.placeholder.com/900x600"
-                    data-link="https://github.com/hafizaryan/foodinary"
-                    data-features="Recipe discovery with filters|Bookmark and personalize menu|Admin CRUD for content"
-                    data-aos="fade-up" data-aos-delay="0">
+                <div class="group cursor-pointer" data-project-card data-category="web" data-title="Foodinary"
+                    data-desc="Foodinary is a web-based platform designed
+                        to promote and educate users about the rich diversity of Indonesian traditional cuisine."
+                    data-tech="HTML, Webpack, CSS, JavaScript, Hapi.js, Hugging Face, Render"
+                    data-image="assets/images/portfolio/foodinary.png" data-link="https://github.com/foodinary-project"
+                    data-repo="https://github.com/foodinary-project" data-demo="https://foodinary.vercel.app/"
+                    data-features="Snap it. Know it. Cook it. | Bookmark & personalitation" data-aos="fade-up"
+                    data-aos-delay="0">
                     <div class="relative overflow-hidden aspect-video bg-zinc-900 border border-border mb-4">
                         <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition z-10"></div>
                         <img src="assets/images/portfolio/foodinary.png" alt="Project 1"
@@ -327,11 +345,12 @@
                 </div>
 
                 <!-- Project 2 -->
-                <div class="group cursor-pointer" data-project-card data-title="ILMIS"
-                    data-desc="Integrated Laboratory Management Information System is An enhanced PHP-based lab management system evolving from SITARIS."
-                    data-tech="Python, FastAPI, PostgreSQL" data-image="https://via.placeholder.com/900x600"
-                    data-link="https://github.com/hafizaryan/ilmis"
-                    data-features="Multi-role access control|Scheduling & inventory dashboard|REST API for mobile clients"
+                <div class="group cursor-pointer" data-project-card data-category="system" data-title="ILMIS" data-desc="Integrated Laboratory Management Information
+                        System is An enhanced PHP-based lab management system evolving from SITARIS."
+                    data-tech="CodeIgniter 4, PHP, MySQL, Bootstrap, jQuery, TCPDF, JWT Token, Laravel Lumen, HTML, JavaScript, CSS, AJAX"
+                    data-image="assets/images/portfolio/ilmis.jpg" data-link="https://github.com/hafizaryan/ilmis"
+                    data-repo="hafizaryan/ilmis" data-demo="https://github.com/hafizaryan/ilmis"
+                    data-features="Multi-role access control|Scheduling & inventory dashboard|REST API untuk mobile client"
                     data-aos="fade-up" data-aos-delay="100">
                     <div class="relative overflow-hidden aspect-video bg-zinc-900 border border-border mb-4">
                         <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition z-10"></div>
@@ -359,11 +378,14 @@
                 </div>
 
                 <!-- Project 3 -->
-                <div class="group cursor-pointer" data-project-card data-title="Daisy"
-                    data-desc="Dermatological AI System For Your Skin is a project that focused on Indonesian citizen’s dermatological problem. DAISY stands for Dermatological AI System for Your Skin."
-                    data-tech="Python, FastAPI, TensorFlow" data-image="https://via.placeholder.com/900x600"
-                    data-link="https://github.com/hafizaryan/daisy"
-                    data-features="Skin image inference using CNN|Educational content for patients|Consultation request queue"
+                <div class="group cursor-pointer" data-project-card data-category="ai" data-title="Daisy" data-desc="Dermatological AI System For Your Skin is a
+                        project that focused on Indonesian citizen’s dermatological problem. DAISY stands for
+                        Dermatological AI System for Your Skin."
+                    data-tech="Kotlin, Google Cloud Run, Node.js, Firebase, App Engine, Firestore, Docker, AJAX"
+                    data-image="assets/images/portfolio/daisy.png" data-link="https://github.com/daisy-team"
+                    data-repo="https://github.com/daisy-team"
+                    data-demo="https://drive.google.com/file/d/1cn4eTAtZRuBbD37Ja1aKsoJrRLSx_gI8/view?usp=drive_link"
+                    data-features="Identify skin conditions like tinea versicolor and ringworm with high accuracy | Simple and intuitive design for easy usage | Informative content about common skin diseases, symptoms, and preventative measures."
                     data-aos="fade-up" data-aos-delay="200">
                     <div class="relative overflow-hidden aspect-video bg-zinc-900 border border-border mb-4">
                         <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition z-10"></div>
@@ -657,6 +679,50 @@
             </p>
         </div>
     </footer>
+
+    <!-- Project Modal -->
+    <div id="project-modal"
+        class="fixed inset-0 bg-black/80 backdrop-blur-sm hidden z-50 flex items-center justify-center px-4">
+        <div class="bg-bg border border-border max-w-5xl w-full relative p-0 md:p-6">
+            <button aria-label="Close project modal" data-close-project
+                class="absolute top-3 right-3 text-gray-400 hover:text-white transition">
+                <i class="fa-solid fa-times text-xl"></i>
+            </button>
+            <div class="grid md:grid-cols-2 gap-0 md:gap-6">
+                <div class="border-b md:border-b-0 md:border-r border-border">
+                    <div class="relative aspect-video bg-zinc-900">
+                        <img id="project-modal-image" src="" alt="" class="absolute inset-0 w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="p-6 space-y-4">
+                    <div>
+                        <p class="text-xs uppercase tracking-[0.2em] text-gray-500 mb-1">Project</p>
+                        <h3 id="project-modal-title" class="text-2xl font-bold text-white">Title</h3>
+                    </div>
+                    <p id="project-modal-desc" class="text-sm text-gray-400 leading-relaxed"></p>
+                    <div>
+                        <h4 class="text-white font-semibold mb-2 text-sm uppercase tracking-wider">Tech Stack</h4>
+                        <div id="project-modal-tech" class="flex flex-wrap gap-2"></div>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-semibold mb-2 text-sm uppercase tracking-wider">Key Features</h4>
+                        <ul id="project-modal-features"
+                            class="list-disc list-inside text-sm space-y-2 text-gray-400 marker:text-white"></ul>
+                    </div>
+                    <div class="flex flex-wrap gap-3 pt-2">
+                        <a id="project-modal-repo" href="#" target="_blank"
+                            class="bg-white text-black px-4 py-2 font-bold hover:bg-gray-200 transition inline-flex items-center gap-2">
+                            <i class="fa-brands fa-github"></i> View Repository
+                        </a>
+                        <a id="project-modal-demo" href="#" target="_blank"
+                            class="border border-white text-white px-4 py-2 font-bold hover:bg-white hover:text-black transition inline-flex items-center gap-2">
+                            <i class="fa-solid fa-up-right-from-square"></i> Live Demo
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Support Modal -->
     <div id="support-modal"
