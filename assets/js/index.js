@@ -23,7 +23,10 @@ const navLinks = [
   { section: "work", nav: "nav-work" },
   { section: "projects", nav: "nav-projects" },
   { section: "education", nav: "nav-education" },
+  { section: "certification", nav: "nav-certification" },
+  { section: "skills", nav: "nav-skills" },
   { section: "organization", nav: "nav-organization" },
+  { section: "language-publication", nav: "nav-language-publication" },
   { section: "awards", nav: "nav-awards" },
   { section: "contact", nav: "nav-contact" },
 ];
@@ -246,13 +249,22 @@ function setActiveNavAll() {
   });
 }
 window.addEventListener("scroll", setActiveNavAll);
-window.addEventListener("DOMContentLoaded", () => {
+function initInteractiveUI() {
   setActiveNavAll();
   setupProjectModal();
   setupSupportModal();
   setupTilt();
   hydrateRepoStats();
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+  const hasPartials = document.querySelector("[data-partial]");
+  if (!hasPartials) {
+    initInteractiveUI();
+  }
 });
+
+window.addEventListener("partials:loaded", initInteractiveUI);
 
 // Hide loading screen when page is fully loaded
 window.addEventListener("load", () => {
@@ -294,47 +306,4 @@ function setupSupportModal() {
     }
   });
 }
-
-// ajs
-
-    // Initialize AOS Animation
-        AOS.init({
-            once: true, // Animation happens only once
-            offset: 100,
-            duration: 800,
-            easing: 'ease-out-cubic',
-        });
-
-        // Mobile Menu Logic
-        function toggleMenu() {
-            const menu = document.getElementById('mobile-menu');
-            if (menu.classList.contains('hidden')) {
-                menu.classList.remove('hidden');
-                // Trigger reflow to enable transition
-                menu.offsetHeight;
-                menu.classList.remove('opacity-0', 'invisible');
-            } else {
-                menu.classList.add('opacity-0', 'invisible');
-                setTimeout(() => {
-                    menu.classList.add('hidden');
-                }, 300);
-            }
-        }
-
-        // Close mobile menu when a link is clicked
-        function closeMenu() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.add('opacity-0', 'invisible');
-            setTimeout(() => {
-                menu.classList.add('hidden');
-            }, 300);
-        }
-
-        // Add click event listeners to all mobile menu links
-        document.addEventListener('DOMContentLoaded', function () {
-            const mobileMenuLinks = document.querySelectorAll('#mobile-menu a');
-            mobileMenuLinks.forEach(link => {
-                link.addEventListener('click', closeMenu);
-            });
-        });
         
